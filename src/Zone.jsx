@@ -4,7 +4,7 @@ import ClayIcon from '@clayui/icon';
 import DropDown from '@clayui/drop-down';
 import Button from '@clayui/button';
 
-function Zone({ zoneId, widgetId, availableWidgets, handleWidgetSelection, handleRemoveWidget, moveWidget, widgetAssignments }) {
+function Zone({ zoneId, widgetId, availableWidgets, handleWidgetSelection, handleRemoveWidget, moveWidget, widgetLabel }) {
     
     const canDrag = widgetId !== null;
 
@@ -62,7 +62,7 @@ function Zone({ zoneId, widgetId, availableWidgets, handleWidgetSelection, handl
                                     <DropDown.Item
                                         key={widget.widgetId}
                                         onClick={() => {
-                                            handleWidgetSelection(zoneId, widget.widgetId); // Passer l'ID de la zone et du widget
+                                            handleWidgetSelection(zoneId, widget.widgetId);
                                         }}
                                     >
                                         {widget.label}
@@ -89,6 +89,7 @@ function Zone({ zoneId, widgetId, availableWidgets, handleWidgetSelection, handl
                             }}
                         >
                             <ClayIcon symbol="drag" />
+                            <h4 class="d-inline-block">{widgetLabel}</h4>
                         </div>            
 
                         <Button
